@@ -37,7 +37,7 @@ class PlainInput extends Component {
     return (
       <div ref="ListItemAdd" className="ListItem-Add uk-inline uk-width-1-1 uk-box-shadow-large" >
         <span className="uk-form-icon uk-form-icon-flip" uk-icon="icon: plus"></span>          
-        <input onBlur={this.toggleFocus} onFocus={this.toggleFocus} onKeyDown={this.createItem} ref="newItem" className="TodoList-Add uk-input uk-form-large" type="text" />
+        <input placeholder="Insert a new task here..." onBlur={this.toggleFocus} onFocus={this.toggleFocus} onKeyDown={this.createItem} ref="newItem" className="TodoList-Add uk-input uk-form-large" type="text" />
       </div>
     );
   }
@@ -118,6 +118,9 @@ class TodoList extends Component {
         key: getShortHash()
       });
       this.setState({ taskList: this.state.taskList });
+
+      let listContainer = this.refs.ListContainer;
+      setTimeout(() => listContainer.scrollTop = listContainer.scrollHeight, 10);
     }
   }
   
@@ -155,8 +158,8 @@ class TodoList extends Component {
     <span>No tasks to do.</span>;
 
     return (
-      <div className="TodoList-Container uk-width-1-3 uk-margin-auto" >
-        <div>
+      <div className="TodoList-Container uk-width-1-2 uk-margin-auto" >
+        <div ref="ListContainer" className="TodoList-List-Container" >
           <ul className="TodoList-List uk-list uk-margin-small-top uk-margin-small-bottom" >
             {listItems}
           </ul>

@@ -2,11 +2,6 @@
   min-height: 100vh !important;
   height: auto;
 }
-
-h1 {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
 body {
   background: #5D4157;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #A8CABA, #5D4157);  /* Chrome 10-25, Safari 5.1-6 */
@@ -14,13 +9,47 @@ body {
 }
 
 h1 {
+  color: rgba(255, 255, 255, 0.7) !important;
   margin-bottom: 2rem;
 }
 
 .TodoList-Container {
   transition: height 0.2s ease-out;
   transform: perspective(600px) rotateX(5deg);
-  padding-bottom: 2rem;
+  padding-right: 3.3rem;
+  padding-left: 3.6rem;
+  padding-bottom: 1rem;
+}
+
+.TodoList-List-Container {
+  margin-left: -3.6rem;
+  padding-left: 3.6rem;
+  margin-right: -3.3rem;
+  padding-right: 3.3rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 380px;
+}
+
+
+.TodoList-List-Container::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.TodoList-List-Container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5); 
+}
+.TodoList-List-Container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.ListItem-Add {
+  margin-top: 1rem;
+}
+.ListItem-Add.focused {
+  transform: perspective(500px) translateZ(-10px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.16) !important;
 }
 
 .TodoList-Item {
@@ -30,14 +59,6 @@ h1 {
   opacity: 0;
   transform: translateY(20px) scale(0.8);
   transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-}
-
-.ListItem-Add {
-  margin-top: 1rem;
-}
-.ListItem-Add.focused {
-  transform: perspective(500px) translateZ(-10px);
-  box-shadow: 0 8px 18px rgba(0,0,0,.16) !important;
 }
 
 .TodoList-Item.shown {
